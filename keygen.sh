@@ -47,7 +47,7 @@ case "$1" in
 			askYN "Regenerate and deploy key \"$2\" -- sure? (y/n) :"
 			if [[ $? != 0 ]]; then fail "Aborted by user"; fi				
 			
-			KEYSIZE=$(( ( $( du -sb "$2".key | cut -d\t -f1 ) - 1 ) / 2 ))
+			KEYSIZE=$(( ( $( du -sb "$2".key | cut -f1 ) - 1 ) / 2 ))
 			askYN "Current \"$2\" length is $KEYSIZE bytes -- change? (y/n) :"
 			if [[ $? == 0 ]]; then
 				while [[ true ]]; do

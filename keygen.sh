@@ -67,7 +67,7 @@ case "$1" in
 				echo "Length of \"$2\" changed to $KEYSIZE bytes."
 			fi
 			
-			NEWKEY=$( dd if=/dev/random bs=1 count=$KEYSIZE 2>/dev/null | xxd -p -c 100500 )
+			NEWKEY=$( dd if=/dev/urandom bs=1 count=$KEYSIZE 2>/dev/null | xxd -p -c 100500 )
 			echo "New \"$2\" value: $NEWKEY"
 			echo "$NEWKEY" > "$2".key
 			echo "Key file written."
